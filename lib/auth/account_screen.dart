@@ -67,7 +67,13 @@ class _AccountScreenState extends State<AccountScreen> {
   void _nextTap() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const ExperienceScreen()),
+      MaterialPageRoute(
+        builder: (context) => ExperienceScreen(
+          name: _nameController.text,
+          phone: _phoneController.text,
+          dateOfBirth: _dateController.text,
+        ),
+      ),
     );
   }
 

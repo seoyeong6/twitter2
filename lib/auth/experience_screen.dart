@@ -3,7 +3,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:authentication/auth/account_screen_two.dart';
 
 class ExperienceScreen extends StatefulWidget {
-  const ExperienceScreen({super.key});
+  final String name;
+  final String phone;
+  final String dateOfBirth;
+
+  const ExperienceScreen({
+    super.key,
+    required this.name,
+    required this.phone,
+    required this.dateOfBirth,
+  });
 
   @override
   State<ExperienceScreen> createState() => _ExperienceScreenState();
@@ -22,7 +31,13 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
     if (_toggle) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => AccountScreenTwo()),
+        MaterialPageRoute(
+          builder: (context) => AccountScreenTwo(
+            name: widget.name,
+            phone: widget.phone,
+            dateOfBirth: widget.dateOfBirth,
+          ),
+        ),
       );
     }
   }
@@ -84,26 +99,26 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
       ),
       bottomNavigationBar: SafeArea(
         top: false,
-        child: Padding(
-          padding: const EdgeInsets.all(36),
-          child: Container(
-            height: 48,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: _toggle ? Colors.black : Colors.grey,
-              borderRadius: BorderRadius.circular(32),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: _onNextPressed,
-                  child: Text(
+        child: GestureDetector(
+          onTap: _onNextPressed,
+          child: Padding(
+            padding: const EdgeInsets.all(36),
+            child: Container(
+              height: 48,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: _toggle ? Colors.black : Colors.grey,
+                borderRadius: BorderRadius.circular(32),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
                     "Next",
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
