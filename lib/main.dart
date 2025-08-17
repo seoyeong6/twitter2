@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:authentication/auth/login_screen.dart';
+import 'package:authentication/auth/confirmation_screen.dart';
+import 'package:authentication/interests/interest_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         bottomAppBarTheme: BottomAppBarTheme(color: Colors.white),
       ),
-      home: LoginScreen(),
+      home: InterestScreen(),
     );
   }
 }
